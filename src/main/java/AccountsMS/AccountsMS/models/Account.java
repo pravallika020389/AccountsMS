@@ -19,9 +19,9 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "account_id")
-    private String accountId;
+    private Long accountId;
     @Column(name = "user_id")
-    private int userId; //FOREIGN KEY (users.user_id)
+    private Long userId; //FOREIGN KEY (users.user_id)
     @Column(name = "account_number", columnDefinition = "varchar(20)", nullable = false, unique = true)
     private String accountNumber;
     @Column(name = "account_type", columnDefinition = "varchar(20)", nullable = false)
