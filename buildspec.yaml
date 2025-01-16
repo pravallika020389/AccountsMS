@@ -11,7 +11,7 @@ phases:
       - set -x
       - REPOSITORY_URI=public.ecr.aws/u0m6x8r9/mydockerrepo
       - aws sts get-caller-identity
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPOSITORY_URI
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u0m6x8r9/mydockerrepo
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
