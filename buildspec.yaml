@@ -9,9 +9,9 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - set -x
-      - REPOSITORY_URI=public.ecr.aws/u0m6x8r9/mydockerrepo
+      - REPOSITORY_URI=442426849883.dkr.ecr.us-east-1.amazonaws.com
       - aws sts get-caller-identity
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u0m6x8r9/mydockerrepo
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin REPOSITORY_URI
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
